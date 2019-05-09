@@ -3,6 +3,7 @@ package com.example.a533.pratiqueexam2;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +13,14 @@ import android.widget.Toast;
 
 public class Activite2 extends AppCompatActivity {
 Button btnAlert;
+Button btnMoveToNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activite2);
 
         btnAlert = findViewById(R.id.btnAlert);
+        btnMoveToNext = findViewById(R.id.btnToActivity3);
         setListeners();
     }
 
@@ -51,6 +54,14 @@ Button btnAlert;
 
 
                 dialog.show();
+            }
+        });
+
+        btnMoveToNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Activity3.class);
+                startActivity(intent);
             }
         });
     }

@@ -4,28 +4,29 @@ import android.content.Context;
 import android.view.View;
 
 public class CustomView extends View {
+    String password = "0101";
+    String currentInput;
+    OnSuccessPasswordListener onSuccessPasswordListener;
     public CustomView(Context context) {
         super(context);
     }
-    static String password = "0101";
-    static String currentInput;
-    static OnSuccessPasswordListener onSuccessPasswordListener;
 
-    public static void setInput(String input)
+
+    public void setInput(String input)
     {
         currentInput += input;
         if (currentInput.length() == 4)
         {
             if (currentInput.equals(password))
             {
-                onSuccessPasswordListener.onSucessPassword();
+                this.onSuccessPasswordListener.onSucessPassword();
             }
         }
     }
 
-    static void setOnSucessPasswordListener(OnSuccessPasswordListener onSucessPasswordListener)
+    void setOnSucessPasswordListener(OnSuccessPasswordListener onSucessPasswordListener)
     {
-        onSuccessPasswordListener = onSucessPasswordListener;
+        this.onSuccessPasswordListener = onSucessPasswordListener;
     }
 
     interface OnSuccessPasswordListener{
